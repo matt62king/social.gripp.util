@@ -14,6 +14,13 @@ public class MapperConfiguration {
         MapperFactory mapperFactory = new DefaultMapperFactory.Builder().build();
         mapperFactory.getConverterFactory().registerConverter(uuidConverter);
 
+        registerConverters(mapperFactory);
+        registerMappers(mapperFactory);
+
         return mapperFactory;
     }
+
+    protected void registerConverters(MapperFactory mapperFactory) {}
+
+    protected void registerMappers(MapperFactory mapperFactory) {}
 }

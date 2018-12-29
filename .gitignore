@@ -73,3 +73,12 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 /.idea/libraries/
+.gradle/
+.idea/.name
+.idea/compiler.xml
+.idea/inspectionProfiles/
+.idea/misc.xml
+.idea/modules.xml
+.idea/modules/
+.idea/sonarlint/
+.idea/vcs.xml
