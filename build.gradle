@@ -12,6 +12,7 @@ repositories {
 
 
 dependencies {
+    compile 'ma.glasnost.orika:orika-core:1.5.2'
     compile 'org.springframework.boot:spring-boot-starter-web:2.0.6.RELEASE'
 
     testCompile group: 'junit', name: 'junit', version: '4.12'

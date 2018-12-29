@@ -2,6 +2,7 @@ package social.gripp.util.data.annotaions;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import social.gripp.util.QualifierNames;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
