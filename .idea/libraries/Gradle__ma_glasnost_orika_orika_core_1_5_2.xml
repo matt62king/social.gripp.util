@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: ma.glasnost.orika:orika-core:1.5.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/ma.glasnost.orika/orika-core/1.5.2/ec930d88c9bdbddcba9ea91c5eb6ba9ec2863af7/orika-core-1.5.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/ma.glasnost.orika/orika-core/1.5.2/a8c7315b1f9b7fa5d24b007bc5e917c868de0959/orika-core-1.5.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
