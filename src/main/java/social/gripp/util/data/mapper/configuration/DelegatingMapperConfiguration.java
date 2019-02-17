@@ -34,8 +34,6 @@ public class DelegatingMapperConfiguration {
             mapperConfiguration.registerConverters(mapperFactory);
             mapperConfiguration.registerMappers(mapperFactory);
         });
-//        registerConverters(mapperFactory);
-//        registerMappers(mapperFactory);
 
         return mapperFactory;
     }
