@@ -19,7 +19,7 @@ public class HeaderValidatorAspect {
         if (httpHeaderResolver != null && httpHeaderResolver.hasHeader(validateHeader.value())) {
             return proceedingJoinPoint.proceed();
         } else {
-            throw new Exception(validateHeader.value() + " is a required header");
+            throw new RuntimeException(validateHeader.value() + " is a required header");
         }
     }
 }
