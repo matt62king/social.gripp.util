@@ -14,12 +14,12 @@ public class HeaderValidatorAspect {
     @Autowired(required = false)
     private HttpHeaderResolver httpHeaderResolver;
 
-    @Around("@annotation(ValidateHeader)")
+    @Around(value = "@annotation(validateHeader)")
     public Object validateHeader(ProceedingJoinPoint proceedingJoinPoint, ValidateHeader validateHeader) throws Throwable {
         if (httpHeaderResolver != null && httpHeaderResolver.hasHeader(validateHeader.value())) {
             return proceedingJoinPoint.proceed();
         } else {
-            throw new Exception(validateHeader.value() + " is a required header");
+            throw new RuntimeException(validateHeader.value() + " is a required header");
         }
     }
 }
