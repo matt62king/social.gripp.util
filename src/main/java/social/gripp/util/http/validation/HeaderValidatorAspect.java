@@ -4,22 +4,25 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import social.gripp.util.http.configuration.HttpHeaderResolver;
+import social.gripp.util.http.configuration.headers.HttpHeaderResolvier;
+
+import java.util.Arrays;
 
 @Aspect
-@Component
 public class HeaderValidatorAspect {
 
     @Autowired(required = false)
-    private HttpHeaderResolver httpHeaderResolver;
+    private HttpHeaderResolvier defaultHeaderResolver;
 
     @Around(value = "@annotation(validateHeader)")
     public Object validateHeader(ProceedingJoinPoint proceedingJoinPoint, ValidateHeader validateHeader) throws Throwable {
-        if (httpHeaderResolver != null && httpHeaderResolver.hasHeader(validateHeader.value())) {
-            return proceedingJoinPoint.proceed();
+        if (defaultHeaderResolver != null) {
+            boolean hasHeaders = Arrays.asList(validateHeader.value()).stream()
+                    .allMatch(defaultHeaderResolver::hasHeader);
+
+            return hasHeaders ? proceedingJoinPoint.proceed() : new RuntimeException("Missing required header(s).");
         } else {
-            throw new RuntimeException(validateHeader.value() + " is a required header");
+            throw new RuntimeException("Missing required header(s).");
         }
     }
 }
