@@ -2,15 +2,9 @@ package social.gripp.util.http.configuration.headers;
 
 import java.util.Optional;
 
-public interface HttpHeaderResolvier {
+public interface HttpHeaderResolver {
     Optional<String> getProjectIdHeader();
     Optional<String> getTaskIdHeader();
 
     boolean hasHeader(String header);
-
-    interface Factory {
-        default HttpHeaderResolvier createDefault() {
-            return new DefaultHeaderResolver();
-        }
-    }
 }

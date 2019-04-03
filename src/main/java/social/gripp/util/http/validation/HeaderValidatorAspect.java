@@ -4,7 +4,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
-import social.gripp.util.http.configuration.headers.HttpHeaderResolvier;
+import social.gripp.util.http.configuration.headers.HttpHeaderResolver;
 
 import java.util.Arrays;
 
@@ -12,7 +12,7 @@ import java.util.Arrays;
 public class HeaderValidatorAspect {
 
     @Autowired(required = false)
-    private HttpHeaderResolvier defaultHeaderResolver;
+    private HttpHeaderResolver defaultHeaderResolver;
 
     @Around(value = "@annotation(validateHeader)")
     public Object validateHeader(ProceedingJoinPoint proceedingJoinPoint, ValidateHeader validateHeader) throws Throwable {
