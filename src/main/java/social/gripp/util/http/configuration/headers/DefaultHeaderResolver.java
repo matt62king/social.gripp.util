@@ -1,4 +1,4 @@
-package social.gripp.util.http.configuration;
+package social.gripp.util.http.configuration.headers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import social.gripp.util.http.GrippHttpHeaders;
@@ -6,15 +6,22 @@ import social.gripp.util.http.GrippHttpHeaders;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
 
-public class HttpHeaderResolver {
+class DefaultHeaderResolver implements HttpHeaderResolvier {
 
     @Autowired
     private HttpServletRequest httpServletRequest;
 
+    @Override
     public Optional<String> getProjectIdHeader() {
         return Optional.ofNullable(httpServletRequest.getHeader(GrippHttpHeaders.PROJECT_ID_HEADER));
     }
 
+    @Override
+    public Optional<String> getTaskIdHeader() {
+        return Optional.ofNullable(httpServletRequest.getHeader(GrippHttpHeaders.TASK_ID_HEADER));
+    }
+
+    @Override
     public boolean hasHeader(String header) {
         return httpServletRequest.getHeader(header) != null && !httpServletRequest.getHeader(header).isEmpty();
     }

@@ -12,7 +12,6 @@ import social.gripp.util.data.mapper.converter.UUIDConverter;
 import java.util.ArrayList;
 import java.util.List;
 
-@Configuration
 public class DelegatingMapperConfiguration {
 
     private final UUIDConverter uuidConverter = new UUIDConverter();
