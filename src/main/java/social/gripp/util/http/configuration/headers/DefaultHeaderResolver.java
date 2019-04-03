@@ -1,12 +1,13 @@
 package social.gripp.util.http.configuration.headers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import social.gripp.util.http.GrippHttpHeaders;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
 
-class DefaultHeaderResolver implements HttpHeaderResolvier {
+public class DefaultHeaderResolver implements HttpHeaderResolver {
 
     @Autowired
     private HttpServletRequest httpServletRequest;
